@@ -7,7 +7,7 @@ package constants;
 public interface JpaConst {
 
     //persistence-unit名
-    String PERSISTENCE_UNIT_NAME = "daily_report_system";
+    String PERSISTENCE_UNIT_NAME = "my_game_strategy";
 
     //データ取得件数の最大値
     int ROW_PER_PAGE = 15; //1ページに表示するレコードの数
@@ -40,6 +40,7 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
     String REP_COL_GOOD_COUNT_AT = "good_count_At"; //
+    String REP_COL_NEWMASSEGE = "message";
 
     //Entity名
     String ENTITY_EMP = "employee"; //従業員

@@ -59,6 +59,15 @@ public class TopAction extends ActionBase {
 
         //↑ここまで追記
 
+        /*  long top1 = service.countAllMine(loginEmployee);
+
+        if (getRequestParam(AttributeConst.GOOD_COUNT_AT) >=
+                || getRequestParam(AttributeConst.REP_DATE).equals("")) {
+            top1 = LocalDate.now();
+        } else {
+            top1 = LocalDate.parse(getRequestParam(AttributeConst.REP_DATE));
+        }*/
+
         //セッションにフラッシュメッセージが設定されている場合はリクエストスコープに移し替え、セッションからは削除する
         String flush = getSessionScope(AttributeConst.FLUSH);
         if (flush != null) {

@@ -18,15 +18,16 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>日報管理システムへようこそ</h2>
-        <h3>【自分の日報　一覧】</h3>
+        <h2 style="background-image: url(css/22154018.jpg);">ゲーム攻略サイトへようこそ</h2>
+        <h3>【登録ゲーム情報　一覧】</h3>
         <table id="report_list">
             <tbody>
                 <tr>
-                    <th class="report_name">氏名</th>
+                    <th class="report_name">ニックネーム</th>
                     <th class="report_date">日付</th>
                     <th class="report_title">タイトル</th>
                     <th class="report_action">操作</th>
+<h2 style="background-image: url(css/22154018.jpg);">1</h2>
                 </tr>
                 <c:forEach var="report" items="${reports}" varStatus="status">
                     <fmt:parseDate value="${report.reportDate}" pattern="yyyy-MM-dd" var="reportDay" type="date" />
@@ -53,6 +54,8 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規日報の登録</a></p>
+        <p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規ゲーム攻略情報の投稿</a></p>
+
+
     </c:param>
 </c:import>

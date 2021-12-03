@@ -11,7 +11,7 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
 
-        <h2>id : ${employee.id} の従業員情報 編集ページ</h2>
+        <h2 style="background-image: url(css/22154018.jpg);">${employee.name} のユーザー情報 編集ページ</h2>
         <p>（パスワードは変更する場合のみ入力してください）</p>
         <form method="POST"
             action="<c:url value='?action=${action}&command=${commUpd}' />">
@@ -19,7 +19,7 @@
         </form>
 
         <p>
-            <a href="#" onclick="confirmDestroy();">この従業員情報を削除する</a>
+            <a href="#" onclick="confirmDestroy();">このユーザーを削除する</a>
         </p>
         <form method="POST"
             action="<c:url value='?action=${action}&command=${commDel}' />">

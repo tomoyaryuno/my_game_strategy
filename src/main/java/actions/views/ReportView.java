@@ -51,6 +51,11 @@ public class ReportView {
     private String content;
 
     /**
+     * 日報の内容
+     */
+    private String newmessage;
+
+    /**
      * 登録日時
      */
     private LocalDateTime createdAt;

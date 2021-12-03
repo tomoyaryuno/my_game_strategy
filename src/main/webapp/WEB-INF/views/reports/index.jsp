@@ -8,6 +8,8 @@
 <c:set var="commShow" value="${ForwardConst.CMD_SHOW.getValue()}" />
 <c:set var="commNew" value="${ForwardConst.CMD_NEW.getValue()}" />
 <c:set var="commgc" value="${ForwardConst.CMD_GOODCOUNT.getValue()}" />
+<c:set var="commnm" value="${ForwardConst.CMD_NEWMESSAGE.getValue()}" />
+
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -16,16 +18,21 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>日報　一覧</h2>
-         <FORM method=POST action='JdbcUpdate.jsp'>
+
+
+
+        <h2 style="background-image: url(css/22154018.jpg);">攻略情報　一覧</h2>
+
+        <FORM method=POST action='JdbcUpdate.jsp'>
         <table id="report_list">
-            <tbody>
-                <tr>
+            <tbody >
+                <tr >
                     <th class="report_name">氏名</th>
                     <th class="report_date">日付</th>
                     <th class="report_title">タイトル</th>
-                    <th class="report_action">操作</th>
+                    <th class="report_action">攻略内容</th>
                     <th class="good_count_At">評価ボタン</th>
+                    <th class="message">コメント</th>
                 </tr>
                 <c:forEach var="report" items="${reports}" varStatus="status">
                     <fmt:parseDate value="${report.reportDate}" pattern="yyyy-MM-dd" var="reportDay" type="date" />
@@ -36,11 +43,11 @@
                         <td class="report_title">${report.title}</td>
                         <td class="report_action"><a href="<c:url value='?action=${actRep}&command=${commShow}&id=${report.id}' />">詳細を見る</a></td>
                         <td class="good_count_At"><a href="<c:url value='?action=${actRep}&command=${commgc}&id=${report.id}'/>">${report.goodcountAt}</a></td>
+                        <td class="message">${report.newmessage}</td>
                 </c:forEach>
             </tbody>
         </table>
         </FORM>
-
         <div id="pagination">
             （全 ${reports_count} 件）<br />
             <c:forEach var="i" begin="1" end="${((reports_count - 1) / maxRow) + 1}" step="1">
@@ -54,7 +61,11 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規日報の登録</a></p>
+
+
+
+        <p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規攻略情報の登録</a></p>
+
 
     </c:param>
 </c:import>

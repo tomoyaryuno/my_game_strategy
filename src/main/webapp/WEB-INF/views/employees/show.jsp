@@ -11,16 +11,16 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
 
-        <h2>id : ${employee.id} の従業員情報 詳細ページ</h2>
+        <h2 style="background-image: url(css/22154018.jpg);"> ${employee.name} の情報 詳細ページ</h2>
 
         <table>
             <tbody>
                 <tr>
-                    <th>社員番号</th>
+                    <th>ID</th>
                     <td><c:out value="${employee.code}" /></td>
                 </tr>
                 <tr>
-                    <th>氏名</th>
+                    <th>ニックネーム</th>
                     <td><c:out value="${employee.name}" /></td>
                 </tr>
                 <tr>

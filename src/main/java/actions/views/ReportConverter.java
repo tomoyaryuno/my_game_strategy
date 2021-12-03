@@ -24,6 +24,7 @@ public class ReportConverter {
                 rv.getReportDate(),
                 rv.getTitle(),
                 rv.getContent(),
+                rv.getNewmessage(),
                 rv.getCreatedAt(),
                 rv.getUpdatedAt());
     }
@@ -46,6 +47,7 @@ public class ReportConverter {
                 r.getReportDate(),
                 r.getTitle(),
                 r.getContent(),
+                r.getNewmessage(),
                 r.getCreatedAt(),
                 r.getUpdatedAt());
 
@@ -78,6 +80,7 @@ public class ReportConverter {
         r.setReportDate(rv.getReportDate());
         r.setTitle(rv.getTitle());
         r.setContent(rv.getContent());
+        r.setNewmessage(rv.getNewmessage());
         r.setCreatedAt(rv.getCreatedAt());
         r.setUpdatedAt(rv.getUpdatedAt());
 
@@ -95,6 +98,7 @@ public class ReportConverter {
         rv.setEmployee(EmployeeConverter.toView(r.getEmployee()));
         rv.setReportDate(r.getReportDate());
         rv.setTitle(r.getTitle());
+        rv.setNewmessage(r.getNewmessage());
         rv.setCreatedAt(r.getCreatedAt());
         rv.setUpdatedAt(r.getUpdatedAt());
 

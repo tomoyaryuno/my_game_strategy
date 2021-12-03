@@ -44,16 +44,31 @@ public class LoginFilter implements Filter {
         String contextPath = ((HttpServletRequest) request).getContextPath();
         String servletPath = ((HttpServletRequest) request).getServletPath();
 
-        if (servletPath.matches("/css.*")) {
-            // CSSフォルダ内は認証処理から除外する
-            chain.doFilter(request, response);
 
-        } else {
-            HttpSession session = ((HttpServletRequest) request).getSession();
+
+
+
+
 
             //クエリパラメータからactionとcommandを取得
             String action = request.getParameter(ForwardConst.ACT.getValue());
             String command = request.getParameter(ForwardConst.CMD.getValue());
+
+            if (servletPath.matches("/css.*")
+                    || (action != null && action.equals("Employee") && command != null
+                            && (command.equals("entryNew") || command.equals("create")))) {
+
+             // CSSフォルダ内は認証処理から除外する
+                chain.doFilter(request, response);
+
+            } else {
+                HttpSession session = ((HttpServletRequest) request).getSession();
+
+
+
+
+
+
 
             //セッションからログインしている従業員の情報を取得
             EmployeeView ev = (EmployeeView) session.getAttribute(AttributeConst.LOGIN_EMP.getValue());
@@ -106,6 +121,7 @@ public class LoginFilter implements Filter {
             chain.doFilter(request, response);
         }
     }
+
 
     /**
      * @see Filter#init(FilterConfig)

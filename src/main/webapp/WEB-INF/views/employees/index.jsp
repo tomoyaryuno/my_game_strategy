@@ -15,13 +15,13 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>従業員　一覧</h2>
+        <h2 style="background-image: url(css/22154018.jpg);">ID　一覧</h2>
         <table id="employee_list">
             <tbody>
                 <tr>
-                    <th>社員番号</th>
-                    <th>氏名</th>
-                    <th>操作</th>
+                    <th>ID</th>
+                    <th>ニックネーム</th>
+                    <th>詳細データ</th>
                 </tr>
                 <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr class="row${status.count % 2}">
@@ -33,7 +33,7 @@
                                     （削除済み）
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="<c:url value='?action=${actEmp}&command=${commShow}&id=${employee.id}' />">詳細を見る</a>
+                                    <a href="<c:url value='?action=${actEmp}&command=${commShow}&id=${employee.id}' />">ID詳細</a>
                                 </c:otherwise>
                             </c:choose>
                         </td>
@@ -55,7 +55,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='?action=${actEmp}&command=${commNew}' />">新規従業員の登録</a></p>
+        <p><a href="<c:url value='?action=${actEmp}&command=${commNew}' />">新規ユーザーの登録</a></p>
 
     </c:param>
 </c:import>

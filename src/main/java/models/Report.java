@@ -89,6 +89,13 @@ public class Report {
     private String content;
 
     /**
+     * 伝言板
+     */
+    @Lob
+    @Column(name = JpaConst.REP_COL_NEWMASSEGE, nullable = true)
+    private String newmessage;
+
+    /**
      * 登録日時
      */
     @Column(name = JpaConst.REP_COL_CREATED_AT, nullable = false)

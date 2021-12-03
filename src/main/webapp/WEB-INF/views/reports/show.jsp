@@ -6,26 +6,24 @@
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
+<c:set var="commnm" value="${ForwardConst.CMD_NEWMESSAGE.getValue()}" />
+<c:set var="commUpd" value="${ForwardConst.CMD_UPDATE.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
 
-        <h2>日報 詳細ページ</h2>
+        <h2 style="background-image: url(css/22154018.jpg);"> 詳細ページ</h2>
 
         <table>
             <tbody>
                 <tr>
-                    <th>氏名</th>
+                    <th>ニックネーム</th>
                     <td><c:out value="${report.employee.name}" /></td>
                 </tr>
                 <tr>
-                    <th>日付</th>
+                    <th>投稿日</th>
                     <fmt:parseDate value="${report.reportDate}" pattern="yyyy-MM-dd" var="reportDay" type="date" />
                     <td><fmt:formatDate value='${reportDay}' pattern='yyyy-MM-dd' /></td>
-                </tr>
-                <tr>
-                    <th>内容</th>
-                    <td><pre><c:out value="${report.content}" /></pre></td>
                 </tr>
                 <tr>
                     <th>登録日時</th>
@@ -37,14 +35,22 @@
                     <fmt:parseDate value="${report.updatedAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="updateDay" type="date" />
                     <td><fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
+                <tr>
+                    <th>攻略情報</th>
+                    <td><pre><c:out value="${report.content}" /></pre></td>
+                </tr>
             </tbody>
         </table>
 
         <c:if test="${sessionScope.login_employee.id == report.employee.id}">
             <p>
-                <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
+                <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この投稿を編集する</a>
             </p>
         </c:if>
+
+        <form method="POST" action="<c:url value='?action=${actRep}&command=${commnm}&id=${report.id}'/>">${report.newmessage}
+            <c:import url="New_form.jsp" />
+        </form>
 
         <p>
             <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">一覧に戻る</a>
